@@ -1,3 +1,93 @@
+// Navigation System
+class NavigationManager {
+  constructor() {
+    this.currentPage = 'home';
+    this.initializeNavigation();
+  }
+
+  initializeNavigation() {
+    // Handle nav link clicks
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pageId = link.getAttribute('data-page');
+        this.showPage(pageId);
+      });
+    });
+
+    // Handle mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
+    }
+
+    // Handle contact form
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => this.handleContactForm(e));
+    }
+  }
+
+  showPage(pageId) {
+    // Hide all pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => {
+      page.classList.remove('active');
+    });
+
+    // Show selected page
+    const targetPage = document.getElementById(pageId);
+    if (targetPage) {
+      targetPage.classList.add('active');
+      this.currentPage = pageId;
+    }
+
+    // Update navigation active state
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('data-page') === pageId) {
+        link.classList.add('active');
+      }
+    });
+
+    // Close mobile menu if open
+    const navMenu = document.querySelector('.nav-menu');
+    const navToggle = document.getElementById('navToggle');
+    if (navMenu && navToggle) {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+    }
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+  }
+
+  handleContactForm(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message')
+    };
+
+    // Simulate form submission (replace with actual form handling)
+    alert('Thank you for contacting us! We will reply to you as soon as possible.');
+    
+    // Reset form
+    e.target.reset();
+  }
+}
+
 // PNG to PDF Converter using jsPDF from CDN
 class PNGToPDFConverter {
   constructor() {
@@ -276,8 +366,18 @@ class PNGToPDFConverter {
   }
 }
 
-// Initialize the converter when the page loads
+// Global function for showPage (needed for onclick handlers)
+function showPage(pageId) {
+  if (window.navigationManager) {
+    window.navigationManager.showPage(pageId);
+  }
+}
+
+// Initialize everything when the page loads
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize navigation first
+  window.navigationManager = new NavigationManager();
+  
   // Wait a moment for jsPDF to load from CDN
   setTimeout(() => {
     // Check for jsPDF availability with multiple possible access patterns

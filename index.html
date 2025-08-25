@@ -39,175 +39,539 @@
   </head>
   <body>
     <div id="app">
-      <header class="header">
-        <h1 class="title">PNG to PDF Converter</h1>
-        <p class="subtitle">Convert your PNG images to PDF format instantly</p>
-      </header>
-
-      <!-- How to Use Section -->
-      <section class="how-to-use-section">
-        <div class="how-to-container">
-          <h2 class="how-to-title">How to Use the PNG to PDF Converter</h2>
-          <div class="steps-grid">
-            <div class="step-card">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <h3>Upload Your Files</h3>
-                <p>Drag and drop PNG files into the upload area, or click "Browse Files" to select them from your device. You can upload multiple PNG files at once.</p>
-              </div>
-            </div>
-            <div class="step-card">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <h3>Choose Options</h3>
-                <p>Select your preferred page size (A4, Letter, A3, A5), orientation (Portrait/Landscape), and how images should fit on each page.</p>
-              </div>
-            </div>
-            <div class="step-card">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <h3>Convert & Download</h3>
-                <p>Click "Convert to PDF" and wait for the process to complete. Once done, download your converted PDF file instantly.</p>
-              </div>
-            </div>
+      <!-- Navigation -->
+      <nav class="main-nav">
+        <div class="nav-container">
+          <div class="nav-brand">
+            <h2>PNG to PDF</h2>
           </div>
-          
-          <div class="features-section">
-            <h3>Key Features</h3>
-            <div class="features-grid">
-              <div class="feature-item">
-                <span class="feature-icon">🚀</span>
-                <span>Fast & Efficient</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">🔒</span>
-                <span>100% Secure</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">📱</span>
-                <span>Mobile Friendly</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">💰</span>
-                <span>Completely Free</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">📎</span>
-                <span>Multiple Files</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">⚙️</span>
-                <span>Customizable Options</span>
-              </div>
-            </div>
+          <div class="nav-menu">
+            <a href="#home" class="nav-link active" data-page="home">Home</a>
+            <a href="#converter" class="nav-link" data-page="converter">Converter</a>
+            <a href="#usage" class="nav-link" data-page="usage">How to Use</a>
+            <a href="#privacy" class="nav-link" data-page="privacy">Privacy Policy</a>
+            <a href="#contact" class="nav-link" data-page="contact">Contact Us</a>
+          </div>
+          <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
-      </section>
+      </nav>
 
-      <main class="converter-container">
-        <div class="upload-section">
-          <div class="drop-zone" id="dropZone">
-            <div class="drop-zone-content">
-              <div class="upload-icon">📁</div>
-              <h3>Drop PNG files here or click to browse</h3>
-              <p>Supports multiple PNG files</p>
-              <input type="file" id="fileInput" multiple accept=".png,image/png" hidden>
-              <button class="browse-btn" id="browseBtn">Browse Files</button>
-            </div>
-          </div>
-        </div>
+      <!-- Home Page -->
+      <div id="home" class="page active">
+        <header class="header">
+          <h1 class="title">PNG to PDF Converter</h1>
+          <p class="subtitle">Convert PNG images to PDF documents instantly</p>
+        </header>
 
-        <div class="files-section" id="filesSection" style="display: none;">
-          <h3>Selected Files</h3>
-          <div class="files-list" id="filesList"></div>
-          <div class="conversion-options">
-            <div class="option-group">
-              <label for="pageSize">Page Size:</label>
-              <select id="pageSize">
-                <option value="a4">A4</option>
-                <option value="letter">Letter</option>
-                <option value="a3">A3</option>
-                <option value="a5">A5</option>
-              </select>
-            </div>
-            <div class="option-group">
-              <label for="orientation">Orientation:</label>
-              <select id="orientation">
-                <option value="portrait">Portrait</option>
-                <option value="landscape">Landscape</option>
-              </select>
-            </div>
-            <div class="option-group">
-              <label for="imageSize">Image Fit:</label>
-              <select id="imageSize">
-                <option value="fit">Fit to Page</option>
-                <option value="original">Original Size</option>
-                <option value="fill">Fill Page</option>
-              </select>
-            </div>
-          </div>
-          <button class="convert-btn" id="convertBtn">Convert to PDF</button>
-        </div>
-
-        <div class="loading-section" id="loadingSection" style="display: none;">
-          <div class="loading-spinner"></div>
-          <p>Converting your files...</p>
-        </div>
-
-        <div class="success-section" id="successSection" style="display: none;">
-          <div class="success-icon">✅</div>
-          <h3>Conversion Complete!</h3>
-          <p>Your PDF has been generated successfully.</p>
-          <button class="download-btn" id="downloadBtn">Download PDF</button>
-          <button class="reset-btn" id="resetBtn">Convert Another File</button>
-        </div>
-      </main>
-
-      <!-- Description Section -->
-      <section class="description-section">
-        <div class="description-container">
-          <div class="description-content">
-            <h2>About PNG to PDF Converter</h2>
-            <p>Our free PNG to PDF converter is a powerful online tool that allows you to transform your PNG images into high-quality PDF documents effortlessly. Whether you need to convert a single image or multiple PNG files, our converter handles it all with ease.</p>
+        <section class="hero-section">
+          <div class="hero-container">
+            <h2 class="hero-title">Free Image Conversion Tool</h2>
+            <p class="hero-description">
+              A fast and secure converter to transform PNG images into high-quality PDF files. 
+              Works directly in your browser without uploading files to servers.
+            </p>
             
-            <div class="description-grid">
-              <div class="description-item">
-                <h3>🔐 Privacy & Security</h3>
-                <p>All conversions are processed directly in your browser. Your files never leave your device, ensuring complete privacy and security of your sensitive images.</p>
+            <div class="hero-features">
+              <div class="hero-feature">
+                <span class="feature-tag">🚀</span>
+                <h3>Fast & Efficient</h3>
+                <p>Instant conversion without waiting</p>
               </div>
-              
-              <div class="description-item">
-                <h3>⚡ Fast Processing</h3>
-                <p>Convert PNG images to PDF instantly without waiting for uploads or downloads. Our client-side processing ensures lightning-fast conversion speeds.</p>
+              <div class="hero-feature">
+                <span class="feature-tag">🔒</span>
+                <h3>100% Secure</h3>
+                <p>Local file processing</p>
               </div>
-              
-              <div class="description-item">
-                <h3>🎨 Customization Options</h3>
-                <p>Choose from various page sizes, orientations, and image fitting options to create PDFs that meet your specific requirements and preferences.</p>
+              <div class="hero-feature">
+                <span class="feature-tag">💰</span>
+                <h3>Completely Free</h3>
+                <p>No fees or subscriptions</p>
               </div>
-              
-              <div class="description-item">
-                <h3>📱 Cross-Platform</h3>
-                <p>Works seamlessly on desktop, tablet, and mobile devices. Access the converter from any modern web browser without installing software.</p>
+              <div class="hero-feature">
+                <span class="feature-tag">📱</span>
+                <h3>Mobile Friendly</h3>
+                <p>Works on all devices</p>
               </div>
             </div>
 
-            <div class="tech-info">
-              <h3>Technical Features</h3>
-              <ul>
-                <li>Support for multiple PNG file formats</li>
-                <li>Batch conversion capabilities</li>
-                <li>Maintains original image quality</li>
-                <li>Multiple page size options (A4, Letter, A3, A5)</li>
-                <li>Portrait and landscape orientations</li>
-                <li>Flexible image fitting modes</li>
-                <li>No file size limitations</li>
-                <li>No watermarks or restrictions</li>
-              </ul>
+            <div class="cta-section">
+              <button class="cta-btn" onclick="showPage('converter')">Start Converting Now</button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section class="info-section">
+          <div class="info-container">
+            <h2>Why Choose Our Converter?</h2>
+            <div class="info-grid">
+              <div class="info-item">
+                <h3>Privacy Guaranteed</h3>
+                <p>All files are processed locally in your browser. No files are uploaded to our servers.</p>
+              </div>
+              <div class="info-item">
+                <h3>High Quality</h3>
+                <p>We maintain the original image quality during conversion to ensure the best results.</p>
+              </div>
+              <div class="info-item">
+                <h3>Multiple Files</h3>
+                <p>You can easily convert multiple PNG images into a single PDF file.</p>
+              </div>
+              <div class="info-item">
+                <h3>Flexible Options</h3>
+                <p>Choose page size, orientation, and how images should fit on each page.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Converter Page -->
+      <div id="converter" class="page">
+        <header class="header">
+          <h1 class="title">PNG to PDF Converter</h1>
+          <p class="subtitle">Convert your PNG images to PDF format instantly</p>
+        </header>
+
+        <!-- How to Use Section -->
+        <section class="how-to-use-section">
+          <div class="how-to-container">
+            <h2 class="how-to-title">How to Use the PNG to PDF Converter</h2>
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3>Upload Your Files</h3>
+                  <p>Drag and drop PNG files into the upload area, or click "Browse Files" to select them from your device. You can upload multiple PNG files at once.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3>Choose Options</h3>
+                  <p>Select your preferred page size (A4, Letter, A3, A5), orientation (Portrait/Landscape), and how images should fit on each page.</p>
+                </div>
+              </div>
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3>Convert & Download</h3>
+                  <p>Click "Convert to PDF" and wait for the process to complete. Once done, download your converted PDF file instantly.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="features-section">
+              <h3>Key Features</h3>
+              <div class="features-grid">
+                <div class="feature-item">
+                  <span class="feature-icon">🚀</span>
+                  <span>Fast & Efficient</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">🔒</span>
+                  <span>100% Secure</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">📱</span>
+                  <span>Mobile Friendly</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">💰</span>
+                  <span>Completely Free</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">📎</span>
+                  <span>Multiple Files</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">⚙️</span>
+                  <span>Customizable Options</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <main class="converter-container">
+          <div class="upload-section">
+            <div class="drop-zone" id="dropZone">
+              <div class="drop-zone-content">
+                <div class="upload-icon">📁</div>
+                <h3>Drop PNG files here or click to browse</h3>
+                <p>Supports multiple PNG files</p>
+                <input type="file" id="fileInput" multiple accept=".png,image/png" hidden>
+                <button class="browse-btn" id="browseBtn">Browse Files</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="files-section" id="filesSection" style="display: none;">
+            <h3>Selected Files</h3>
+            <div class="files-list" id="filesList"></div>
+            <div class="conversion-options">
+              <div class="option-group">
+                <label for="pageSize">Page Size:</label>
+                <select id="pageSize">
+                  <option value="a4">A4</option>
+                  <option value="letter">Letter</option>
+                  <option value="a3">A3</option>
+                  <option value="a5">A5</option>
+                </select>
+              </div>
+              <div class="option-group">
+                <label for="orientation">Orientation:</label>
+                <select id="orientation">
+                  <option value="portrait">Portrait</option>
+                  <option value="landscape">Landscape</option>
+                </select>
+              </div>
+              <div class="option-group">
+                <label for="imageSize">Image Fit:</label>
+                <select id="imageSize">
+                  <option value="fit">Fit to Page</option>
+                  <option value="original">Original Size</option>
+                  <option value="fill">Fill Page</option>
+                </select>
+              </div>
+            </div>
+            <button class="convert-btn" id="convertBtn">Convert to PDF</button>
+          </div>
+
+          <div class="loading-section" id="loadingSection" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Converting your files...</p>
+          </div>
+
+          <div class="success-section" id="successSection" style="display: none;">
+            <div class="success-icon">✅</div>
+            <h3>Conversion Complete!</h3>
+            <p>Your PDF has been generated successfully.</p>
+            <button class="download-btn" id="downloadBtn">Download PDF</button>
+            <button class="reset-btn" id="resetBtn">Convert Another File</button>
+          </div>
+        </main>
+
+        <!-- Description Section -->
+        <section class="description-section">
+          <div class="description-container">
+            <div class="description-content">
+              <h2>About PNG to PDF Converter</h2>
+              <p>Our free PNG to PDF converter is a powerful online tool that allows you to transform your PNG images into high-quality PDF documents effortlessly. Whether you need to convert a single image or multiple PNG files, our converter handles it all with ease.</p>
+              
+              <div class="description-grid">
+                <div class="description-item">
+                  <h3>🔐 Privacy & Security</h3>
+                  <p>All conversions are processed directly in your browser. Your files never leave your device, ensuring complete privacy and security of your sensitive images.</p>
+                </div>
+                
+                <div class="description-item">
+                  <h3>⚡ Fast Processing</h3>
+                  <p>Convert PNG images to PDF instantly without waiting for uploads or downloads. Our client-side processing ensures lightning-fast conversion speeds.</p>
+                </div>
+                
+                <div class="description-item">
+                  <h3>🎨 Customization Options</h3>
+                  <p>Choose from various page sizes, orientations, and image fitting options to create PDFs that meet your specific requirements and preferences.</p>
+                </div>
+                
+                <div class="description-item">
+                  <h3>📱 Cross-Platform</h3>
+                  <p>Works seamlessly on desktop, tablet, and mobile devices. Access the converter from any modern web browser without installing software.</p>
+                </div>
+              </div>
+
+              <div class="tech-info">
+                <h3>Technical Features</h3>
+                <ul>
+                  <li>Support for multiple PNG file formats</li>
+                  <li>Batch conversion capabilities</li>
+                  <li>Maintains original image quality</li>
+                  <li>Multiple page size options (A4, Letter, A3, A5)</li>
+                  <li>Portrait and landscape orientations</li>
+                  <li>Flexible image fitting modes</li>
+                  <li>No file size limitations</li>
+                  <li>No watermarks or restrictions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Usage Guide Page -->
+      <div id="usage" class="page">
+        <header class="header">
+          <h1 class="title">How to Use</h1>
+          <p class="subtitle">A complete guide to using the PNG to PDF converter</p>
+        </header>
+
+        <section class="usage-section">
+          <div class="usage-container">
+            <h2>How to Use the Converter</h2>
+            
+            <div class="usage-steps">
+              <div class="usage-step">
+                <div class="step-tag">Step 1</div>
+                <h3>Upload Files</h3>
+                <p>Drag and drop PNG files into the upload area, or click "Browse Files" to select them from your device. You can upload multiple PNG files at once.</p>
+                <div class="usage-tags">
+                  <span class="tag">Drag & Drop</span>
+                  <span class="tag">Multiple Files</span>
+                  <span class="tag">PNG Only</span>
+                </div>
+              </div>
+
+              <div class="usage-step">
+                <div class="step-tag">Step 2</div>
+                <h3>Choose Settings</h3>
+                <p>Select your preferred page size (A4, Letter, A3, A5), orientation (Portrait/Landscape), and how images should fit on each page.</p>
+                <div class="usage-tags">
+                  <span class="tag">Various Page Sizes</span>
+                  <span class="tag">Flexible Orientation</span>
+                  <span class="tag">Customizable Layout</span>
+                </div>
+              </div>
+
+              <div class="usage-step">
+                <div class="step-tag">Step 3</div>
+                <h3>Convert & Download</h3>
+                <p>Click "Convert to PDF" and wait for the process to complete. Once finished, download your converted PDF file instantly.</p>
+                <div class="usage-tags">
+                  <span class="tag">Instant Conversion</span>
+                  <span class="tag">Direct Download</span>
+                  <span class="tag">High Quality</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tips-section">
+              <h3>Tips for Optimal Use</h3>
+              <div class="tips-grid">
+                <div class="tip-item">
+                  <h4>Image Quality</h4>
+                  <p>Use high-quality PNG images to get the best results in your final PDF file.</p>
+                </div>
+                <div class="tip-item">
+                  <h4>File Order</h4>
+                  <p>Arrange your files in the desired order before uploading to have them in the correct sequence in the PDF.</p>
+                </div>
+                <div class="tip-item">
+                  <h4>File Size</h4>
+                  <p>There are no file size limitations, but smaller files convert faster.</p>
+                </div>
+                <div class="tip-item">
+                  <h4>Browser</h4>
+                  <p>Use a modern browser to ensure the best performance and compatibility with all features.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="features-detailed">
+              <h3>Advanced Features</h3>
+              <div class="feature-detail">
+                <h4>Local Processing</h4>
+                <p>All operations are performed locally in your browser without uploading files to servers, ensuring privacy and security.</p>
+              </div>
+              <div class="feature-detail">
+                <h4>Full Customization</h4>
+                <p>Complete control over page sizes, orientations, and image fitting modes to suit your needs.</p>
+              </div>
+              <div class="feature-detail">
+                <h4>Universal Compatibility</h4>
+                <p>Works on all devices and modern browsers without needing to install additional software.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Privacy Policy Page -->
+      <div id="privacy" class="page">
+        <header class="header">
+          <h1 class="title">Privacy Policy</h1>
+          <p class="subtitle">Our commitment to protecting your privacy and data</p>
+        </header>
+
+        <section class="privacy-section">
+          <div class="privacy-container">
+            <div class="privacy-intro">
+              <h2>Your Privacy is Our Priority</h2>
+              <p>We are committed to protecting your privacy and ensuring the security of your data. This policy explains how we handle your information.</p>
+            </div>
+
+            <div class="privacy-sections">
+              <div class="privacy-item">
+                <h3>1. Data Collection</h3>
+                <p>We do not collect or store any of your files or personal data. All operations are performed locally in your browser.</p>
+                <div class="privacy-tags">
+                  <span class="tag-green">No File Collection</span>
+                  <span class="tag-green">No Data Storage</span>
+                  <span class="tag-green">Local Processing</span>
+                </div>
+              </div>
+
+              <div class="privacy-item">
+                <h3>2. File Usage</h3>
+                <p>The files you upload remain on your device and never leave it. The conversion is done directly in your browser.</p>
+                <div class="privacy-tags">
+                  <span class="tag-green">No Uploads</span>
+                  <span class="tag-green">No Sending</span>
+                  <span class="tag-green">Full Security</span>
+                </div>
+              </div>
+
+              <div class="privacy-item">
+                <h3>3. Analytics Data</h3>
+                <p>We may use basic analytics tools to understand site usage, but without linking it to your personal identity.</p>
+                <div class="privacy-tags">
+                  <span class="tag-blue">Anonymous</span>
+                  <span class="tag-blue">For Service Improvement</span>
+                </div>
+              </div>
+
+              <div class="privacy-item">
+                <h3>4. Cookies</h3>
+                <p>We use essential cookies to improve user experience and save your preferred settings.</p>
+                <div class="privacy-tags">
+                  <span class="tag-blue">Essential Only</span>
+                  <span class="tag-blue">Improve Experience</span>
+                </div>
+              </div>
+
+              <div class="privacy-item">
+                <h3>5. Data Sharing</h3>
+                <p>We do not share or sell any data with third parties. Your privacy is fully guaranteed.</p>
+                <div class="privacy-tags">
+                  <span class="tag-green">No Sharing</span>
+                  <span class="tag-green">No Selling</span>
+                  <span class="tag-green">Complete Confidentiality</span>
+                </div>
+              </div>
+
+              <div class="privacy-item">
+                <h3>6. Security</h3>
+                <p>We use the latest security technologies to protect the site and ensure a safe experience for users.</p>
+                <div class="privacy-tags">
+                  <span class="tag-green">SSL Encryption</span>
+                  <span class="tag-green">Advanced Protection</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="privacy-contact">
+              <h3>Contact Us</h3>
+              <p>If you have any questions about this Privacy Policy, please contact us through the contact page.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Contact Page -->
+      <div id="contact" class="page">
+        <header class="header">
+          <h1 class="title">Contact Us</h1>
+          <p class="subtitle">We are here to help and answer your questions</p>
+        </header>
+
+        <section class="contact-section">
+          <div class="contact-container">
+            <div class="contact-intro">
+              <h2>Get in Touch</h2>
+              <p>We welcome your questions and suggestions. Our team is ready to assist you at any time.</p>
+            </div>
+
+            <div class="contact-methods">
+              <div class="contact-method">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>Email us at</p>
+                <a href="mailto:support@example.com" class="contact-link">support@example.com</a>
+                <div class="contact-tags">
+                  <span class="tag">Quick Response</span>
+                  <span class="tag">24/7</span>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon">💬</div>
+                <h3>Technical Support</h3>
+                <p>For help with technical issues</p>
+                <a href="mailto:tech@example.com" class="contact-link">tech@example.com</a>
+                <div class="contact-tags">
+                  <span class="tag">Specialized Support</span>
+                  <span class="tag">Fast Solutions</span>
+                </div>
+              </div>
+
+              <div class="contact-method">
+                <div class="contact-icon">🌐</div>
+                <h3>Social Media</h3>
+                <p>Follow us on social media platforms</p>
+                <div class="social-links">
+                  <a href="#" class="social-link">Facebook</a>
+                  <a href="#" class="social-link">Twitter</a>
+                  <a href="#" class="social-link">LinkedIn</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-section">
+              <h3>Send us a message</h3>
+              <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject" required>
+                    <option value="">Select Subject</option>
+                    <option value="support">Support Request</option>
+                    <option value="bug">Bug Report</option>
+                    <option value="feature">Feature Suggestion</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+              </form>
+            </div>
+
+            <div class="faq-section">
+              <h3>Frequently Asked Questions</h3>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <h4>Is the converter really free?</h4>
+                  <p>Yes, the converter is completely free with no hidden fees or subscriptions.</p>
+                </div>
+                <div class="faq-item">
+                  <h4>Are my files secure?</h4>
+                  <p>Yes, all files are processed locally in your browser and never leave your device.</p>
+                </div>
+                <div class="faq-item">
+                  <h4>What file sizes are supported?</h4>
+                  <p>We support all PNG file sizes without any restrictions.</p>
+                </div>
+                <div class="faq-item">
+                  <h4>Does it work on mobile?</h4>
+                  <p>Yes, the converter is compatible with all modern devices and browsers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <footer class="footer">
         <p>© 2025 PNG to PDF Converter. Free online tool for image conversion.</p>
